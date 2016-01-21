@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -152,11 +152,15 @@ HEADERS += \
     Library/mavlink/mavlink_conversions.h \
     Library/mavlink/mavlink_helpers.h \
     Library/mavlink/mavlink_types.h \
-    Library/mavlink/protocol.h
+    Library/mavlink/protocol.h \
+    Source/about_info_widget.h \
+    Source/serial_port_selecter.h
 
 SOURCES += \
     Source/main.cpp \
-    Source/mainwindow.cpp
+    Source/mainwindow.cpp \
+    Source/about_info_widget.cpp \
+    Source/serial_port_selecter.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/Library/Qwt/lib/ -lqwt
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/Library/Qwt/lib/ -lqwtd
@@ -165,4 +169,8 @@ INCLUDEPATH += $$PWD/Library/Qwt/include
 DEPENDPATH += $$PWD/Library/Qwt/include
 
 FORMS += \
-    Source/mainwindow.ui
+    Source/mainwindow.ui \
+    Source/about_info_widget.ui
+
+RESOURCES += \
+    resource.qrc
