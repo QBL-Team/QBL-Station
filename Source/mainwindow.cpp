@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "MainVindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 
@@ -7,17 +7,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    widget_about = new about_info_widget;
-    port_selecter = new serial_port_selecter(this);
+
+    //串口管理器
+    port_selecter = new SerialPortSelecter(this);
     port_selecter->setPortMenu(ui->menu_setting_port);
+
+    //连接信号槽，端口操作菜单被触发时
+    connect(port_selecter,&SerialPortSelecter::onPortSelected,this,&MainWindow::onPortSelected);
+
+    //设置biao'qian标签，用于信息的展示
+    statusBar()->addPermanentWidget(&status_bar_info_label,1);
+    setStatusText("断开连接");
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete widget_about;
 }
-
 
 void MainWindow::on_action_exit_triggered()
 {
@@ -26,7 +32,22 @@ void MainWindow::on_action_exit_triggered()
 
 void MainWindow::on_action_about_triggered()
 {
-
-    widget_about->show();
+    AboutInfoWidget * info = new AboutInfoWidget;
+    info->setAttribute(Qt::WA_DeleteOnClose);
+    info->show();
 }
 
+void MainWindow::onPortSelected(const QSerialPortInfo *port)
+{
+    if(NULL == port){
+        setStatusText("断开连接");
+        return;
+    }
+
+    setStatusText(port->portName() + " " + port->description() + " " + port->manufacturer());
+}
+
+void MainWindow::setStatusText(QString text)
+{
+    status_bar_info_label.setText(text);
+}

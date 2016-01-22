@@ -11,11 +11,11 @@
  * \brief The serial_port_selecter 提供了端口选择功能
  */
 
-class serial_port_selecter : public QObject
+class SerialPortSelecter : public QObject
 {
     Q_OBJECT
 public:
-    explicit serial_port_selecter(QObject *parent = 0);
+    explicit SerialPortSelecter(QObject *parent = 0);
 
     /*!
      * \brief setPortMenu 设置将要被填充端口信息的菜单
@@ -46,12 +46,14 @@ private:
      */
     const QSerialPortInfo    *    port_current_selected;
 signals:
+    void onPortSelected(const QSerialPortInfo * port_info);
 
 public slots:
 
     /*!
      * \brief refreshPort 刷新当前可用端口，并将选项填充到菜单中
      */
+
     void refreshPort();
 
     /*!

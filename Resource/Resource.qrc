@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/image/app">
-        <file>Resource/image/app/QBL-Station.png</file>
+        <file>image/app/QBL-Station.png</file>
     </qresource>
 </RCC>

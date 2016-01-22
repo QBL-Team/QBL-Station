@@ -11,12 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QBL-Station
 TEMPLATE = app
 
-
-
-RC_FILE += QBL-Station.rc
+RC_FILE+=Misc/QBL-Station.rc
 
 HEADERS += \
-    Source/mainwindow.h \
     Library/mavlink/common/common.h \
     Library/mavlink/common/mavlink.h \
     Library/mavlink/common/mavlink_msg_actuator_control_target.h \
@@ -153,14 +150,15 @@ HEADERS += \
     Library/mavlink/mavlink_helpers.h \
     Library/mavlink/mavlink_types.h \
     Library/mavlink/protocol.h \
-    Source/about_info_widget.h \
-    Source/serial_port_selecter.h
+    Source/MainVindow.h \
+    Source/SerialPortSelecter.h \
+    Source/AboutInfoWidget.h
 
 SOURCES += \
     Source/main.cpp \
-    Source/mainwindow.cpp \
-    Source/about_info_widget.cpp \
-    Source/serial_port_selecter.cpp
+    Source/SerialPortSelecter.cpp \
+    Source/MainWindow.cpp \
+    Source/AboutInfoWidget.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/Library/Qwt/lib/ -lqwt
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/Library/Qwt/lib/ -lqwtd
@@ -169,8 +167,8 @@ INCLUDEPATH += $$PWD/Library/Qwt/include
 DEPENDPATH += $$PWD/Library/Qwt/include
 
 FORMS += \
-    Source/mainwindow.ui \
-    Source/about_info_widget.ui
+    Source/AboutInfoWidget.ui \
+    Source/MainWindow.ui
 
 RESOURCES += \
-    resource.qrc
+    Resource/Resource.qrc

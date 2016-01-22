@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>about_info_widget</class>
- <widget class="QWidget" name="about_info_widget">
+ <class>AboutInfoWidget</class>
+ <widget class="QWidget" name="AboutInfoWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -62,7 +62,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="../resource.qrc">:/image/app/Resource/image/app/QBL-Station.png</pixmap>
+    <pixmap resource="../Resource/Resource.qrc">:/image/app/image/app/QBL-Station.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -96,7 +96,7 @@ V0.0</string>
   </widget>
  </widget>
  <resources>
-  <include location="../resource.qrc"/>
+  <include location="../Resource/Resource.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -2,8 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "about_info_widget.h"
-#include "serial_port_selecter.h"
+#include <QSerialPortInfo>
+#include "AboutInfoWidget.h"
+#include "SerialPortSelecter.h"
+#include <QLabel>
 
 
 namespace Ui {
@@ -17,15 +19,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void setStatusText(QString text);
 
 private:
-    about_info_widget * widget_about;
-    serial_port_selecter * port_selecter;
-
+    SerialPortSelecter * port_selecter;
+    QLabel status_bar_info_label;
 private slots:
     void on_action_exit_triggered();
 
     void on_action_about_triggered();
+
+public slots:
+    void onPortSelected(const QSerialPortInfo * port);
 private:
     Ui::MainWindow *ui;
 };

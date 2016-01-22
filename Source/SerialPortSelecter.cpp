@@ -1,21 +1,22 @@
-#include "serial_port_selecter.h"
+#include "SerialPortSelecter.h"
 #include <QDebug>
+#include "MainVindow.h"
 
-serial_port_selecter::serial_port_selecter(QObject *parent)
+SerialPortSelecter::SerialPortSelecter(QObject *parent)
 {
     setParent(parent);
     port_menu = NULL;
     port_current_selected = NULL;
 }
 
-void serial_port_selecter::setPortMenu(QMenu *menu)
+void SerialPortSelecter::setPortMenu(QMenu *menu)
 {
     port_menu = menu;
-    connect(port_menu,&QMenu::aboutToShow,this,&serial_port_selecter::refreshPort);
-    connect(port_menu,&QMenu::triggered,this,&serial_port_selecter::portSelected);
+    connect(port_menu,&QMenu::aboutToShow,this,&SerialPortSelecter::refreshPort);
+    connect(port_menu,&QMenu::triggered,this,&SerialPortSelecter::portSelected);
 }
 
-void serial_port_selecter::refreshPort()
+void SerialPortSelecter::refreshPort()
 {
     if(NULL != port_menu){
 
@@ -30,7 +31,7 @@ void serial_port_selecter::refreshPort()
         action_item_list.clear();
 
         //构建新的端口列表，第一个元素为无端口
-        action_item_list.append(new QAction("无端口",NULL));   //注意清理内存，防止内存溢出
+        action_item_list.append(new QAction("断开连接",NULL));   //注意清理内存，防止内存溢出
 
         //刷新可用端口信息
         port_list = QSerialPortInfo::availablePorts();
@@ -43,21 +44,21 @@ void serial_port_selecter::refreshPort()
     }
 }
 
-void serial_port_selecter::portSelected(QAction *action)
+void SerialPortSelecter::portSelected(QAction *action)
 {
     //当前选择的是空端口
     if(action == action_item_list.at(0)){
         port_current_selected = NULL;
-        return;
     }
 
-    //
+    else {
 
-    for(quint8 i = 1;i < action_item_list.length();i++){
-        if(action == action_item_list.at(i)){
-            port_current_selected = &(port_list.at(i - 1));
-            break;
+        for(quint8 i = 1;i < action_item_list.length();i++){
+            if(action == action_item_list.at(i)){
+                port_current_selected = &(port_list.at(i - 1));
+                break;
+            }
         }
     }
-
+    emit onPortSelected(port_current_selected);
 }
