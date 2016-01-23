@@ -1,22 +1,26 @@
-#ifndef ABOUT_INFO_WIDGET_H
-#define ABOUT_INFO_WIDGET_H
+//
+// Created by Huang on 2016/1/22.
+//
+
+#ifndef QBL_PILOT_ABOUTINFOWIDGET_H
+#define QBL_PILOT_ABOUTINFOWIDGET_H
 
 #include <QWidget>
+#include "Ui_AboutInfoWidget.h"
 
-namespace Ui {
-class AboutInfoWidget;
+namespace Ui{
+    class AboutInfoWidget;
 }
 
-class AboutInfoWidget : public QWidget
-{
-    Q_OBJECT
+class AboutInfoWidget : public QWidget{
+
 
 public:
-    explicit AboutInfoWidget(QWidget *parent = 0);
-    ~AboutInfoWidget();
+    AboutInfoWidget(QWidget * parent = 0);
 
 private:
-    Ui::AboutInfoWidget *ui;
+    Ui::AboutInfoWidget aboutInfoWidget;
 };
 
-#endif // ABOUT_INFO_WIDGET_H
+
+#endif //QBL_PILOT_ABOUTINFOWIDGET_H

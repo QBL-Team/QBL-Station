@@ -97,6 +97,7 @@ V0.0</string>
  </widget>
  <resources>
   <include location="../Resource/Resource.qrc"/>
+  <include location="../Resource/Resource.qrc"/>
  </resources>
  <connections/>
 </ui>
