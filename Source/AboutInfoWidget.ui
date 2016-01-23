@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>关于QBL Station</string>
+   <string>关于QBL-Station</string>
   </property>
   <widget class="QLabel" name="label_logo">
    <property name="geometry">

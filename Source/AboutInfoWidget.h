@@ -2,17 +2,14 @@
 #define ABOUT_INFO_WIDGET_H
 
 #include <QWidget>
+#include "AboutInfoWidget_Ui.h"
 
-namespace Ui {
-class AboutInfoWidget;
-}
-
-class AboutInfoWidget : public QWidget
-{
-    Q_OBJECT
+class AboutInfoWidget : public QWidget {
+Q_OBJECT
 
 public:
     explicit AboutInfoWidget(QWidget *parent = 0);
+
     ~AboutInfoWidget();
 
 private:
