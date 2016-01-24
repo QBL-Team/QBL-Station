@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug/QBL-Station_automoc.cpp">
       <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug/QBL-Station_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel/QBL-Station_automoc.cpp">
       <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel/QBL-Station_automoc.cpp" isTestSource="false" />
     </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo/QBL-Station_automoc.cpp">
       <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo/QBL-Station_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release/QBL-Station_automoc.cpp">
       <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release/QBL-Station_automoc.cpp" isTestSource="false" />
@@ -44,18 +56,26 @@
       <sourceFolder url="file://$MODULE_DIR$/Develop/Qt5/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Develop/Qt5/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Resource/Resource.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Resource/AppIcon.o" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Resource/Resource.qrc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Resource/AppIcon.rc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Source/AboutInfoWidget.ui" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Source/AboutInfoWidget.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Source/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Source/SerialPortManager.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Source/AboutInfoWidget.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Source/MainWindow.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Source/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Source/MainWindow.ui" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Source/SerialPortManager.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Source/MainWindow.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Source/MainWindow.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo" />
           <root url="file://D:/Develop/MinGW/lib/gcc/i686-w64-mingw32/4.9.1/include-fixed" />
           <root url="file://D:/Develop/MinGW/lib/gcc/i686-w64-mingw32/4.9.1/include" />
           <root url="file://D:/Develop/MinGW/i686-w64-mingw32/include" />
@@ -63,12 +83,26 @@
           <root url="file://D:/Develop/Qt5/mkspecs/win32-g++" />
         </CLASSES>
         <SOURCES>
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo" />
           <root url="file://D:/Develop/MinGW/lib/gcc/i686-w64-mingw32/4.9.1/include-fixed" />
           <root url="file://D:/Develop/MinGW/lib/gcc/i686-w64-mingw32/4.9.1/include" />
           <root url="file://D:/Develop/MinGW/i686-w64-mingw32/include" />
           <root url="file://D:/Develop/Qt5/include" />
           <root url="file://D:/Develop/Qt5/mkspecs/win32-g++" />
         </SOURCES>
+        <excluded>
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel/QBL-Station_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/MinSizeRel/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug/QBL-Station_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Debug/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release/QBL-Station_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/Release/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo/QBL-Station_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/8811f0a1/8811f0a1/RelWithDebInfo/CMakeFiles/QBL-Station.dir/qrc_Resource.cpp" />
+        </excluded>
       </library>
     </orderEntry>
   </component>

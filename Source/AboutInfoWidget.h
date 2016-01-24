@@ -2,7 +2,7 @@
 #define ABOUT_INFO_WIDGET_H
 
 #include <QWidget>
-#include "AboutInfoWidget_Ui.h"
+#include "ui_AboutInfoWidget.h"
 
 class AboutInfoWidget : public QWidget {
 Q_OBJECT
@@ -13,7 +13,7 @@ public:
     ~AboutInfoWidget();
 
 private:
-    Ui::AboutInfoWidget *ui;
+    Ui::AboutInfoWidget * ui;
 };
 
 #endif // ABOUT_INFO_WIDGET_H

@@ -1,11 +1,10 @@
 #include "AboutInfoWidget.h"
 
 AboutInfoWidget::AboutInfoWidget(QWidget *parent) :
-        QWidget(parent),
-        ui(new Ui::AboutInfoWidget) {
+        QWidget(parent){
+    ui = new Ui::AboutInfoWidget;
     ui->setupUi(this);
-    setWindowModality(Qt::ApplicationModal);
-    setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
 }
 
 AboutInfoWidget::~AboutInfoWidget() {
