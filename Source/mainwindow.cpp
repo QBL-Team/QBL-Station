@@ -5,6 +5,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QDebug>
+#include <QChartView>
 #include "MainWindow.h"
 #include "AboutInfoWidget.h"
 
@@ -14,6 +15,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     ui->setupUi(this);
 
     serial_port_manager = new SerialPortManager;
+    mavlink_parser = new MavlinkParser(nullptr);
+    ytChart = new YTChart;
+
+    QtCharts::QChartView * chartView = new QtCharts::QChartView(this);
+
+    ytChart->setAnimationOptions(QtCharts::QChart::AllAnimations);
+    chartView->setRenderHint(QPainter::HighQualityAntialiasing);
+
+    setCentralWidget(chartView);
+
+    chartView->setChart(ytChart);
 
     //构建状态栏永久信息显示标签
     statusBar()->addPermanentWidget(&label_statusbar_info, 1);
@@ -28,6 +40,7 @@ void MainWindow::showAboutInfo(void) {
 }
 
 MainWindow::~MainWindow() {
+    delete ytChart;
     delete ui;
     delete serial_port_manager;
 }
@@ -55,6 +68,9 @@ void MainWindow::connectSignals() {
     connect(ui->menu_setting_port,SIGNAL(triggered(QAction *)),serial_port_manager,SLOT(onPortSelected(QAction * )));
     //将端口状态反馈到主界面的状态栏
     connect(serial_port_manager,SIGNAL(onPortSelectionChanged(const QString &)),this,SLOT(setStatusBarText(const QString &)));
+
+    //
+    connect(serial_port_manager,SIGNAL(onByteArrayReceived(QByteArray)),mavlink_parser,SLOT(parseMessage(const QByteArray &)));
 }
 
 

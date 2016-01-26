@@ -8,8 +8,10 @@
 #include <QMainWindow>
 #include <QLabel>
 #include "SerialPortManager.h"
+#include "MavlinkParser.h"
 #include <QThread>
 #include <ui_MainWindow.h>
+#include "YTChart.h"
 
 class MainWindow : public QMainWindow {
 Q_OBJECT
@@ -31,7 +33,10 @@ private:
 
     //串口管理器
     SerialPortManager * serial_port_manager;
+    //Mavlink协议解析器
+    MavlinkParser *mavlink_parser;
 
+    YTChart * ytChart;
 
 private slots:
     /*
