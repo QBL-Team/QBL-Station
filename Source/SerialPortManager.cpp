@@ -23,7 +23,8 @@ SerialPortManager::SerialPortManager(QObject *parent) : QObject(parent) {
     serial_port->setParity(QSerialPort::Parity::NoParity);
     serial_port->setStopBits(QSerialPort::StopBits::OneStop);
 
-    connect(serial_port,SIGNAL(readyRead()),this,SLOT(onByteReceived()));
+    //关联串口接收信号
+    connect(serial_port,&QSerialPort::readyRead,this,&SerialPortManager::onByteReceived);
 
     moveToThread(thread_work);
     thread_work->start();

@@ -3,7 +3,6 @@
 //
 
 #include "MavlinkParser.h"
-
 #include <QDebug>
 
 void MavlinkParser::parseMessage(const QByteArray &byteArray) {

@@ -51,26 +51,26 @@ void MainWindow::setStatusBarText(const QString &text) {
 
 void MainWindow::connectSignals() {
     //关联关于菜单和显示关于菜单
-    connect(ui->action_help_about, SIGNAL(triggered(bool)), this, SLOT(showAboutInfo()));
+    connect(ui->action_help_about,&QAction::triggered,this,&MainWindow::showAboutInfo);
     //关联退出菜单和窗口关闭功能
-    connect(ui->action_file_exit, SIGNAL(triggered(bool)), this, SLOT(close()));
-    connect(ui->menu_setting_port,SIGNAL(aboutToShow()),this,SLOT(clearMenuSettingPort()));
+    connect(ui->action_file_exit,&QAction::triggered,this,&MainWindow::close);
+    //关联菜单触发和清除显示内容
+    connect(ui->menu_setting_port,&QMenu::aboutToShow,this,&MainWindow::clearMenuSettingPort);
     //关联端口列表菜单和串口管理器的刷新串口功能
-    connect(ui->menu_setting_port,SIGNAL(aboutToShow()),serial_port_manager,SLOT(refreshAvaliablePort()));
+    connect(ui->menu_setting_port,&QMenu::aboutToShow,serial_port_manager,&SerialPortManager::refreshAvaliablePort);
 
     //注册数据类型用以信号槽传递
     qRegisterMetaType<QList<QAction *>>("QList<QAction *>");
     //刷新端口完成，将端口列表返回系统界面
-    connect(serial_port_manager,SIGNAL(onAvaliablePortRefreshed(QList<QAction *>)),this,SLOT(
-            showMenuSettingPort(QList<QAction *>)));
+    connect(serial_port_manager,&SerialPortManager::onAvaliablePortRefreshed,this,&MainWindow::showMenuSettingPort);
 
     //用户选择了某一端口，
-    connect(ui->menu_setting_port,SIGNAL(triggered(QAction *)),serial_port_manager,SLOT(onPortSelected(QAction * )));
+    connect(ui->menu_setting_port,&QMenu::triggered,serial_port_manager,&SerialPortManager::onPortSelected);
     //将端口状态反馈到主界面的状态栏
-    connect(serial_port_manager,SIGNAL(onPortSelectionChanged(const QString &)),this,SLOT(setStatusBarText(const QString &)));
+    connect(serial_port_manager,&SerialPortManager::onPortSelectionChanged,this,&MainWindow::setStatusBarText);
 
-    //
-    connect(serial_port_manager,SIGNAL(onByteArrayReceived(QByteArray)),mavlink_parser,SLOT(parseMessage(const QByteArray &)));
+    //关联串口管理器接收数据信号，并将接收到的数据传递到数据解析器中
+    connect(serial_port_manager,&SerialPortManager::onByteArrayReceived,mavlink_parser,&MavlinkParser::parseMessage);
 }
 
 
