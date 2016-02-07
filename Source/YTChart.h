@@ -1,44 +1,32 @@
-//
-// Created by Huang on 2016/1/25.
-//
+#ifndef YTCHART_H
+#define YTCHART_H
 
-#ifndef QBL_STATION_YTCHART_H
-#define QBL_STATION_YTCHART_H
+#include <QChartView>
+#include <QChart>
+#include <QSplineSeries>
 
-#include <QtCharts/QChartView>
-#include <QtCharts/QLineSeries>
-#include <QValueAxis>
-#include <QList>
-
-class YTChart : public QtCharts::QChart {
-Q_OBJECT
+class YTChart : public QtCharts::QChartView
+{
 public:
-    YTChart(QGraphicsItem *parent = nullptr, const Qt::WindowFlags &wFlags = Qt::Widget) : QChart(parent, wFlags) {
-        list_line_series.append(new QtCharts::QLineSeries(this));
-        valueAxisX = new QtCharts::QValueAxis(this);
-        QPen pen(Qt::red);
-        pen.setWidth(3);
-        list_line_series.last()->setPen(pen);
-        list_line_series.last()->setUseOpenGL(true);
-        for (int i = 0; i < 10000; ++i) {
-            list_line_series.last()->append(i, i);
-        }
+    YTChart(QWidget * parent);
+    ~YTChart();
 
-        addSeries(list_line_series.last());
-        createDefaultAxes();
-
-        legend()->hide();
-
-        setAxisX(valueAxisX, list_line_series.last());
-        valueAxisX->setTickCount(1);
-        axisX()->setRange(0, 10000);
-        axisY()->setRange(0, 10000);
-    }
-
+public slots:
+    /*!
+     * \brief onDataUpdated 更新数据
+     * \param val 最新添加的数据
+     */
+    void onDataUpdated(float val);
 private:
-    QList<QtCharts::QLineSeries *> list_line_series;
-    QtCharts::QValueAxis *valueAxisX;
+    /*!
+     * \brief chart 用于展示图像的图表
+     */
+    QtCharts::QChart * chart;
+
+    /*!
+     * \brief spline_series 用于展示的点集合
+     */
+    QtCharts::QSplineSeries * spline_series;
 };
 
-
-#endif //QBL_STATION_YTCHART_H
+#endif // YTCHART_H

@@ -6,13 +6,16 @@
 #include <QDebug>
 #include "SerialPortManager.h"
 
-SerialPortManager::~SerialPortManager() {
+SerialPortManager::~SerialPortManager()
+{
     thread_work->quit();
     thread_work->wait();
     delete thread_work;
 }
 
-SerialPortManager::SerialPortManager(QObject *parent) : QObject(parent) {
+SerialPortManager::SerialPortManager(QObject* parent)
+    : QObject(parent)
+{
 
     serial_port = new QSerialPort(this);
     thread_work = new QThread;
@@ -24,28 +27,28 @@ SerialPortManager::SerialPortManager(QObject *parent) : QObject(parent) {
     serial_port->setStopBits(QSerialPort::StopBits::OneStop);
 
     //关联串口接收信号
-    connect(serial_port,&QSerialPort::readyRead,this,&SerialPortManager::onByteReceived);
-
+    connect(serial_port, &QSerialPort::readyRead, this, &SerialPortManager::onByteReceived);
     moveToThread(thread_work);
     thread_work->start();
 }
 
-
-void SerialPortManager::onByteReceived(void) {
-    if (serial_port->isReadable()){
+void SerialPortManager::onByteReceived(void)
+{
+    if (serial_port->isReadable()) {
         emit onByteArrayReceived(serial_port->readAll());
     }
 }
 
-void SerialPortManager::onPortSelected(QAction *action) {
+void SerialPortManager::onPortSelected(QAction* action)
+{
     int i = list_menu_port_disp.indexOf(action);
 
     //首先关闭端口
-    if (serial_port->isOpen()){
+    if (serial_port->isOpen()) {
         serial_port->close();
     }
     //当前选择的是断开连接
-    if (0 == i){
+    if (0 == i) {
         serial_port->setPortName("null");
         emit onPortSelectionChanged("断开连接");
         return;
@@ -55,23 +58,23 @@ void SerialPortManager::onPortSelected(QAction *action) {
 
     serial_port->setPort(list_available_port.at(i));
 
-    if (serial_port->open(QSerialPort::OpenModeFlag::ReadWrite))
-    {
+    if (serial_port->open(QSerialPort::OpenModeFlag::ReadWrite)) {
         emit onPortSelectionChanged(list_available_port.at(i).portName() + " " + list_available_port.at(i).description());
-    } else {
+    }
+    else {
         emit onPortSelectionChanged(list_available_port.at(i).portName() + "端口开启失败");
     }
 }
 
-void SerialPortManager::refreshAvaliablePort() {
+void SerialPortManager::refreshAvaliablePort()
+{
 
-    QAction *action;
+    QAction* action;
     //当列表中可用的元素为空时,构建始终存在的第一个元素，断开连接
     if (list_menu_port_disp.length() == 0) {
         action = new QAction(this);
         action->setText("断开连接");
         list_menu_port_disp.append(action);
-
     }
 
     //获取可用端口的列表
@@ -87,8 +90,7 @@ void SerialPortManager::refreshAvaliablePort() {
         }
 
         list_menu_port_disp.at(i + 1)->setText(
-                list_available_port.at(i).portName() + " " + list_available_port.at(i).description());
-
+            list_available_port.at(i).portName() + " " + list_available_port.at(i).description());
     }
 
     //清理缓存列表中多余的Action
@@ -99,4 +101,3 @@ void SerialPortManager::refreshAvaliablePort() {
 
     emit onAvaliablePortRefreshed(list_menu_port_disp);
 }
-

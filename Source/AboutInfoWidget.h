@@ -5,15 +5,15 @@
 #include "ui_AboutInfoWidget.h"
 
 class AboutInfoWidget : public QWidget {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-    explicit AboutInfoWidget(QWidget *parent = 0);
+    explicit AboutInfoWidget(QWidget* parent = 0);
 
     ~AboutInfoWidget();
 
 private:
-    Ui::AboutInfoWidget * ui;
+    Ui::AboutInfoWidget* ui;
 };
 
 #endif // ABOUT_INFO_WIDGET_H

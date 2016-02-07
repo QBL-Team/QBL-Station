@@ -164,13 +164,14 @@ SOURCES += \
     Source/SerialPortManager.cpp \
     Source/YTChart.cpp
 
+
+FORMS += \
+    Source/AboutInfoWidget.ui \
+    Source/MainWindow.ui
+
 RESOURCES += \
     Resource/Resource.qrc
 
 RC_FILE += \
     Resource/AppIcon.rc
-
-FORMS += \
-    Source/AboutInfoWidget.ui \
-    Source/MainWindow.ui
 
