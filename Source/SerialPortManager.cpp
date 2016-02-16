@@ -16,7 +16,6 @@ SerialPortManager::~SerialPortManager()
 SerialPortManager::SerialPortManager(QObject* parent)
     : QObject(parent)
 {
-
     serial_port = new QSerialPort(this);
     thread_work = new QThread;
 

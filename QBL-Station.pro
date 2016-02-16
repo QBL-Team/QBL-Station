@@ -13,6 +13,8 @@ TEMPLATE = app
 
 QMAKE_CXXFLAGS += -std=c++11 -DNATIVE_BIG_ENDIAN
 
+INCLUDEPATH += Source\
+
 HEADERS += \
     Library/mavlink/common/common.h \
     Library/mavlink/common/mavlink.h \
@@ -154,7 +156,9 @@ HEADERS += \
     Source/MainWindow.h \
     Source/MavlinkParser.h \
     Source/SerialPortManager.h \
-    Source/YTChart.h
+    Source/YTChart.h \
+    Source/DummyPlug.h \
+    Source/TabContainer.h
 
 SOURCES += \
     Source/AboutInfoWidget.cpp \
@@ -162,12 +166,15 @@ SOURCES += \
     Source/MainWindow.cpp \
     Source/MavlinkParser.cpp \
     Source/SerialPortManager.cpp \
-    Source/YTChart.cpp
+    Source/YTChart.cpp \
+    Source/DummyPlug.cpp \
+    Source/TabContainer.cpp
 
 
 FORMS += \
     Source/AboutInfoWidget.ui \
-    Source/MainWindow.ui
+    Source/MainWindow.ui \
+    Source/TabContainer.ui
 
 RESOURCES += \
     Resource/Resource.qrc

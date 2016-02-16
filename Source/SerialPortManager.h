@@ -36,6 +36,7 @@ private slots:
      * \brief onByteReceived 本函数内部使用，接收数据之后发生信号，将数据发送到其他模块
      */
     void onByteReceived();
+
 signals:
     /*!
      * \brief onPortSelectionChanged 完成端口选择处理之后反馈的提示信息

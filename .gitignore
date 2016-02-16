@@ -1,4 +1,5 @@
-/build
+/Build
+*.user
 
 # Windows image file caches
 Thumbs.db

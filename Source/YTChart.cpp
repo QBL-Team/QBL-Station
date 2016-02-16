@@ -14,6 +14,8 @@ YTChart::YTChart(QWidget* parent)
 
     chart->axisX()->setRange(0, 100);
     chart->axisY()->setRange(-1.5, 1.5);
+
+    chart->setMargins(QMargins(0, 0, 0, 0));
     chart->setAnimationOptions(QtCharts::QChart::NoAnimation);
     setRenderHint(QPainter::Antialiasing);
     setChart(chart);
@@ -22,6 +24,13 @@ YTChart::YTChart(QWidget* parent)
 YTChart::~YTChart()
 {
     delete chart;
+}
+
+void YTChart::wheelEvent(QWheelEvent* event)
+{
+
+    qDebug()<<event->angleDelta()<<endl;
+    event->accept();
 }
 
 void YTChart::onDataUpdated(float val)

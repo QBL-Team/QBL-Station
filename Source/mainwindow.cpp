@@ -5,10 +5,12 @@
 #include <QAction>
 #include <QMenu>
 #include <QDebug>
+#include <QScrollBar>
 #include "MainWindow.h"
 #include "AboutInfoWidget.h"
 #include "YTChart.h"
-
+#include "DummyPlug.h"
+#include "TabContainer.h"
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -20,14 +22,14 @@ MainWindow::MainWindow(QWidget* parent)
     serial_port_manager = new SerialPortManager;
     mavlink_parser = new MavlinkParser(nullptr);
 
-    YTChart * yt = new YTChart(this);
-    this->setCentralWidget(yt);
+    TabContainer * conatiner = new TabContainer(this);
 
-    connect(mavlink_parser,&MavlinkParser::DataUpdated,yt,&YTChart::onDataUpdated);
+    setCentralWidget(conatiner);
 
     //构建状态栏永久信息显示标签
     statusBar()->addPermanentWidget(&label_statusbar_info, 1);
     connectSignals();
+
     setStatusBarText("断开连接");
 }
 

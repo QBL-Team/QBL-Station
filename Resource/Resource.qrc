@@ -1,5 +1,7 @@
 <RCC>
-    <qresource prefix="/image/app">
+    <qresource prefix="/">
+        <file>image/tab_setting.png</file>
         <file>image/app/QBL-Station.png</file>
+        <file>image/tab_info.png</file>
     </qresource>
 </RCC>
