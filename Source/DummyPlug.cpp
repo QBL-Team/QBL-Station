@@ -8,7 +8,7 @@ DummyPlug::DummyPlug(QObject* parent)
     QTimer * timer = new QTimer(this);
 
     connect(timer,&QTimer::timeout,this,&DummyPlug::TimerUpdated);
-    timer->start(1000/100);
+    timer->start(1000/20);
 }
 
 void DummyPlug::TimerUpdated()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>666</width>
-    <height>407</height>
+    <width>687</width>
+    <height>391</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@ QTabBar::tab:selected {
    <enum>QTabWidget::Rounded</enum>
   </property>
   <property name="currentIndex">
-   <number>1</number>
+   <number>0</number>
   </property>
   <property name="iconSize">
    <size>
@@ -44,7 +44,7 @@ QTabBar::tab:selected {
   <property name="documentMode">
    <bool>false</bool>
   </property>
-  <widget class="QWidget" name="tab_1">
+  <widget class="QWidget" name="tab_setting">
    <attribute name="icon">
     <iconset>
      <normalon>:/image/tab_setting.png</normalon>
@@ -54,10 +54,20 @@ QTabBar::tab:selected {
     <string/>
    </attribute>
   </widget>
-  <widget class="YTChart" name="tab_2">
+  <widget class="QWidget" name="tab_info">
    <attribute name="icon">
     <iconset>
      <normalon>:/image/tab_info.png</normalon>
+    </iconset>
+   </attribute>
+   <attribute name="title">
+    <string/>
+   </attribute>
+  </widget>
+  <widget class="YTChart" name="tab_chart">
+   <attribute name="icon">
+    <iconset>
+     <normalon>:/image/tab_chart.png</normalon>
     </iconset>
    </attribute>
    <attribute name="title">

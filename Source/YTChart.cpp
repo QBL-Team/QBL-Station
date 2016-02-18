@@ -29,7 +29,7 @@ YTChart::~YTChart()
 void YTChart::wheelEvent(QWheelEvent* event)
 {
 
-    qDebug()<<event->angleDelta()<<endl;
+    qDebug() << event->angleDelta() << endl;
     event->accept();
 }
 
